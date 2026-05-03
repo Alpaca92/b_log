@@ -1,5 +1,12 @@
 # Baby Family Media App MVP Plan
 
+## 0. ui
+- ui/* 폴더에서 확인 가능
+  - CalendarView (default)
+  - Feed (TBD)
+  - ProfileSettings
+  - ErrorPage
+
 ## 1. 제품 목표
 
 - 레퍼런스: 쑥쑥찰칵의 핵심 경험(가족 공유, 권한 제어, 댓글/좋아요, 다운로드)
