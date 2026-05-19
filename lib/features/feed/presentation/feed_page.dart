@@ -1,12 +1,11 @@
+import 'package:b_log/core/layout/main_scaffold.dart';
 import 'package:b_log/core/routes/tab_route.dart';
+import 'package:b_log/features/feed/application/feed_providers.dart';
+import 'package:b_log/features/feed/domain/media_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-
-import '../../../core/layout/main_scaffold.dart';
-import '../application/feed_providers.dart';
-import '../domain/media_item.dart';
 
 class FeedPage extends ConsumerWidget {
   const FeedPage({super.key});

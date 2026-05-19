@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import '../domain/media_item.dart';
+import 'package:b_log/features/feed/domain/media_item.dart';
+
 import 'media_repository.dart';
 
 class MockMediaRepository implements MediaRepository {
