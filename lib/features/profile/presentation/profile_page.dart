@@ -1,15 +1,15 @@
+import 'package:b_log/core/layout/main_scaffold.dart';
+import 'package:b_log/core/routes/index.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/layout/main_scaffold.dart';
-
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      currentIndex: 2,
-      title: '설정',
+      currentIndex: TabRoute.profile.index,
+      title: TabRoute.profile.label,
       body: ListView(
         children: const [
           ListTile(

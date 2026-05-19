@@ -1,3 +1,5 @@
+import 'package:b_log/core/layout/main_scaffold.dart';
+import 'package:b_log/core/routes/tab_route.dart';
 import 'package:flutter/material.dart';
 
 class CalendarPage extends StatelessWidget {
@@ -5,9 +7,10 @@ class CalendarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Calendar')),
-      body: const Center(child: Text('Calendar View')),
+    return MainScaffold(
+      currentIndex: TabRoute.calendar.index,
+      title: TabRoute.calendar.label,
+      body: const Text('Calendar View'),
     );
   }
 }

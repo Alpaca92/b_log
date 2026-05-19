@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'router.dart';
+import '../core/routes/router.dart';
 
 class BLogApp extends ConsumerWidget {
   const BLogApp({super.key});

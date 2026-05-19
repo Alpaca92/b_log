@@ -1,3 +1,4 @@
+import 'package:b_log/core/routes/tab_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,8 +16,8 @@ class FeedPage extends ConsumerWidget {
     final timelineAsync = ref.watch(timelineProvider);
 
     return MainScaffold(
-      currentIndex: 0,
-      title: '우리 가족 타임라인',
+      currentIndex: TabRoute.feed.index,
+      title: TabRoute.feed.label,
       body: timelineAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error:
