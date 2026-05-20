@@ -11,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('Feed tab is rendered', (WidgetTester tester) async {
-    await tester.pumpWidget(const ProviderScope(child: SsukSsukApp()));
+    await tester.pumpWidget(const ProviderScope(child: BLogApp()));
 
     await tester.pumpAndSettle();
 

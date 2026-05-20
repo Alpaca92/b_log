@@ -27,25 +27,25 @@ extension TabRouteExtension on TabRoute {
     }
   }
 
-  FaIcon get icon {
+  IconData get icon {
     switch (this) {
       case TabRoute.feed:
-        return const FaIcon(FontAwesomeIcons.images);
+        return FontAwesomeIcons.images;
       case TabRoute.calendar:
-        return const FaIcon(FontAwesomeIcons.calendarDays);
+        return FontAwesomeIcons.calendarDays;
       case TabRoute.profile:
-        return const FaIcon(FontAwesomeIcons.circleUser);
+        return FontAwesomeIcons.circleUser;
     }
   }
 
-  FaIcon get selectedIcon {
+  IconData get selectedIcon {
     switch (this) {
       case TabRoute.feed:
-        return const FaIcon(FontAwesomeIcons.solidImages);
+        return FontAwesomeIcons.solidImages;
       case TabRoute.calendar:
-        return const FaIcon(FontAwesomeIcons.solidCalendarDays);
+        return FontAwesomeIcons.solidCalendarDays;
       case TabRoute.profile:
-        return const FaIcon(FontAwesomeIcons.solidCircleUser);
+        return FontAwesomeIcons.solidCircleUser;
     }
   }
 }
@@ -58,6 +58,19 @@ class TabRouteWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
+      indicatorColor: Colors.transparent,
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        final isSelected = states.contains(WidgetState.selected);
+
+        return TextStyle(
+          color:
+              isSelected
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.onSurfaceVariant,
+          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+        );
+      }),
       selectedIndex: selectedIndex,
       onDestinationSelected: (index) {
         switch (index) {
@@ -77,8 +90,11 @@ class TabRouteWidget extends StatelessWidget {
               .map(
                 (route) => NavigationDestination(
                   label: route.label,
-                  icon: route.icon,
-                  selectedIcon: route.selectedIcon,
+                  icon: FaIcon(route.icon),
+                  selectedIcon: FaIcon(
+                    route.selectedIcon,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
                 ),
               )
               .toList(),
