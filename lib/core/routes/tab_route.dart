@@ -56,17 +56,9 @@ class TabRouteWidget extends StatelessWidget {
   final int selectedIndex;
 
   void _onDestinationSelected(BuildContext context, int index) {
-    switch (index) {
-      case 0:
-        context.go(TabRoute.feed.path);
-        break;
-      case 1:
-        context.go(TabRoute.calendar.path);
-        break;
-      case 2:
-        context.go(TabRoute.profile.path);
-        break;
-    }
+    if (index < 0 || index >= TabRoute.values.length) return;
+
+    context.go(TabRoute.values[index].path);
   }
 
   WidgetStateProperty<TextStyle?> _labelTextStyle(BuildContext context) {
@@ -80,6 +72,20 @@ class TabRouteWidget extends StatelessWidget {
         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
       );
     });
+  }
+
+  List<Widget> _destinations(BuildContext context) {
+    final selectedColor = Theme.of(context).colorScheme.primary;
+
+    return TabRoute.values
+        .map(
+          (route) => NavigationDestination(
+            label: route.label,
+            icon: FaIcon(route.icon),
+            selectedIcon: FaIcon(route.selectedIcon, color: selectedColor),
+          ),
+        )
+        .toList();
   }
 
   @override
@@ -98,19 +104,7 @@ class TabRouteWidget extends StatelessWidget {
           selectedIndex: selectedIndex,
           onDestinationSelected:
               (index) => _onDestinationSelected(context, index),
-          destinations:
-              TabRoute.values
-                  .map(
-                    (route) => NavigationDestination(
-                      label: route.label,
-                      icon: FaIcon(route.icon),
-                      selectedIcon: FaIcon(
-                        route.selectedIcon,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    ),
-                  )
-                  .toList(),
+          destinations: _destinations(context),
         ),
       ],
     );
