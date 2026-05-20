@@ -12,6 +12,7 @@ const lightColorScheme = ColorScheme(
   onSurface: Colors.black,
   error: Colors.red,
   onError: Colors.white,
+  outlineVariant: Color(0xFFE0E0E0),
 );
 
 const darkColorScheme = ColorScheme(
@@ -24,4 +25,5 @@ const darkColorScheme = ColorScheme(
   onSurface: Colors.white,
   error: Color(0xFFEF5350),
   onError: Colors.black,
+  outlineVariant: Color(0xFF44413C),
 );
